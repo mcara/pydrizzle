@@ -139,7 +139,7 @@ def XYtoSky_pars(input,x=None,y=None,coords=None,colnames=None,linear=yes,
                 _tcol.add_col(deccol)
 
                 # Update table by replacing old HDU with new one
-                _thdu = pyfits.new_table(_tcol)
+                _thdu = pyfits.BinTableHDU.from_columns(_tcol)
                 del _fout[1]
                 _fout.append(_thdu)
                 _fout.close()
